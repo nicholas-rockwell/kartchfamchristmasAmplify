@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+/* Welcome container */
+.welcomeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center;
+  width: 80%; /* Use responsive width */
+  height: auto;
+  max-width: 800px; /* Prevent it from being too wide */
+  margin: 0 auto 2%; /* Center horizontally and add spacing below */
+  padding: 2vh 2vw; /* Add responsive padding */
+  box-sizing: border-box; /* Include padding in the dimensions */
+}
+
+/* Welcome text */
+.welcomeText, .welcomeHighlight {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1.5rem, 10vw, 57.31px); /* Dynamically adjust text size */
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1.2;
+  text-shadow: 2px 2px 6px rgb(0, 0, 0);
+  max-width: 100%; /* Prevent text overflow */
+  word-wrap: break-word; /* Break long words if necessary */
+}
+
+/* Login form container */
+.loginFormContainer {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  width: 100%; /* Full width */
+  height: calc(100vh - 10%); /* Adjust height to fit within the viewport */
+  padding: 2vh 2vw; /* Add responsive padding */
+  box-sizing: border-box; /* Include padding in the dimensions */
+  overflow: hidden; /* Prevent content overflow */
+}
+
+/* Login form */
+.form {
+  color: white;
+  font-size: clamp(1rem, 4vw, 1.5rem); /* Dynamic font size */
+  width: 90%; /* Make the form responsive */
+  max-width: 500px; /* Limit width on larger screens */
+  max-height: 80%; /* Prevent form from overflowing the container */
+  padding: 1rem; /* Consistent internal spacing */
+  background-color: #435649e1;
+  border-radius: 20px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  overflow-y: auto; /* Enable scrolling if content exceeds height */
+  box-sizing: border-box; /* Include padding in the dimensions */
+}
+
+/* Input fields */
+.formControl {
+  width: 93%; /* Full width of the container */
+  padding: clamp(10px, 2vw, 15px); /* Responsive padding */
+  font-size: clamp(1rem, 3vw, 1.5rem); /* Dynamic font size */
+  border-radius: 8px; /* Consistent rounding */
+  margin-bottom: 1rem; /* Spacing between inputs */
+  border: 1px solid #000000;
+  background-color: #ffffffe8; /* Light background */
+  color: #000000;
+  font-weight: bold;
+}
+
+.formControl:focus {
+  font-weight: bold;
+  outline: none;
+  border-color: #ff0000;
+  box-shadow: 0 0 4px #ff0000; /* Focus glow */
+}
+
+/* Submit button */
+.btn {
+  width: 70%; /* Adjust button width */
+  max-width: 300px; /* Prevent it from being too wide */
+  padding: clamp(10px, 2vw, 20px); /* Responsive padding */
+  font-size: clamp(1rem, 2rem, 2.25rem); /* Dynamic font size */
+  border-radius: 15px;
+  background-image: linear-gradient(
+    45deg,
+    #ffffff 25%,
+    #8e1b3aff 25%,
+    #8e1b3aff 50%,
+    #ffffff 50%,
+    #ffffff 75%,
+    #8e1b3aff 75%,
+    #8e1b3aff 100%
+  );
+  background-size: 40px 40px; /* Candy cane effect */
+  color: #000000;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255);
+  font-weight: bold;
+  margin: 1rem auto; /* Center horizontally and add spacing */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: block; /* Ensures it's treated as a block element */
+}
+
+.btn:hover {
+  transform: scale(1.1); /* Slight hover effect */
+}
+
+.btn:disabled {
+  background-color: #cccccc; /* Gray background for disabled button */
+  cursor: not-allowed;
+}
+
+.alert {
+  color: white;
+}

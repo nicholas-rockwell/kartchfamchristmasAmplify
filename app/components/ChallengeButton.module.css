@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+.container {
+  display: flex;
+  font-family: 'Oswald', sans-serif;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center;
+  max-width: 800px; /* Prevent it from being too wide */
+  margin: 0 auto 2%; /* Center horizontally and add spacing below */
+  padding: 20px; /* Add responsive padding */
+  box-sizing: border-box; /* Include padding in the dimensions */
+}
+
+.buttonBox {
+    /* Box positioning */
+    width: 85%;
+    margin-top: 5%;
+    height: 20%;
+    font-size: clamp(1rem, 10vw, 60.7px);
+
+    border-radius: 15px; /* Rounded corners */
+
+    /* Candy Cane Look */
+    background-image: linear-gradient(45deg, #ffffff 25%, #8e1b3aff 25%, #8e1b3aff 50%, #ffffff 50%, #ffffff 75%, #8e1b3aff 75%, #8e1b3aff 100%);
+    background-size: 110px 110px; 
+
+    text-shadow:
+        -2px 2px 2px #000,
+        2px 2px 2px #000,
+        2px -2px 2px #000,
+        -2px -2px 2px #000;
+      color: rgb(255, 255, 255);
+      letter-spacing: 0px;
+      font-weight: bolder;
+      transition: transform 0.2s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+  }
+  
+  .btn:disabled {
+    cursor: not-allowed;
+  }
+
+
+  /* COUNTDOWN STYLING ----------------------------------------------------- */
+
+
+  .countdown {
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgb(0, 0, 0), 0 0 20px rgb(0, 0, 0); /* Subtle glow */
+    animation: ominousPulse 2s infinite ease-in-out;
+  }
+  
+  @keyframes ominousPulse {
+    0% {
+      transform: scale(1);
+      font-size: calc(100% + 3%);
+      color: #ffffff; 
+      text-shadow: 0 0 20px rgb(0, 0, 0), 0 0 20px rgb(0, 0, 0); 
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1); 
+      font-size: calc(100% + 1%);
+      color: #ffffff; 
+      text-shadow: 0 0 20px rgb(0, 0, 0), 0 0 30px rgb(0, 0, 0); 
+      opacity: 1; 
+    }
+    100% {
+      transform: scale(1);
+      font-size: calc(100% + 3%);
+      color: #ffffff; 
+      text-shadow: 0 0 20px rgb(0, 0, 0), 0 0 20px rgb(0, 0, 0); 
+      opacity: 1;
+    }
+  }
+
+/* POPUP STYLING -------------------------------------------------- */
+.popup {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Add space between items */
+  gap: 15px; /* Add spacing between the buttons */
+
+  font-size: clamp(0.25rem, 2rem, 24px);
+  border-radius: 10px;
+  margin-top: 60vh;
+  width: 80%;
+  max-width: 673.594px;
+  height: auto;
+
+  padding: 10px;
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 10px 15px 10px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
+  background-color: rgb(142, 27, 58);
+  color: white;
+  text-shadow: 5px 5px 15px rgb(0, 0, 0); /* Add a subtle shadow for contrast */
+  font-weight: bolder;
+}
+
+.popupConfirm {
+  padding: 10px;
+  width: auto;
+  text-align: center;
+  background-color: green; /* Example: green for confirm */
+  color: white;
+  text-shadow: 1px 1px 10px rgb(0, 0, 0); /* Add a subtle shadow for contrast */
+  border: 2px solid black;
+  font-size: clamp(0.5rem, 1.5rem, 2rem);
+  border-radius: 15px;
+}
+
+.popupDecline {
+  padding: 10px;
+  width: auto;
+  text-align: center;
+  background-color: red; /* Example: red for decline */
+  color: white;
+  text-shadow: 1px 1px 10px rgb(0, 0, 0); /* Add a subtle shadow for contrast */
+  border: 2px solid black;
+  font-size: clamp(0.5rem, 1.5rem, 2rem);
+  border-radius: 15px;
+}
+
+.popupUnderline {
+  font-style: italic;
+  text-decoration: underline;
+}

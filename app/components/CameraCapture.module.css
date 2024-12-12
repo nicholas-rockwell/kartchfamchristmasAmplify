@@ -1,0 +1,32 @@
+.cameraContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgb(0, 0, 0);
+    /* Add a subtle shadow for contrast */
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    justify-content: center;
+}
+
+.submitButton {
+    padding: 10px 20px;
+    background-image: linear-gradient(45deg, #ffffff 25%, #8e1b3aff 25%, #8e1b3aff 50%, #ffffff 50%, #ffffff 75%, #8e1b3aff 75%, #8e1b3aff 100%);
+    text-shadow: 1px 1px 25px rgb(255, 255, 255);
+    /* Add a subtle shadow for contrast */
+    background-size: 75px 75px;
+    font-size: clamp(0.5rem, 4vw, 16.35px);
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}

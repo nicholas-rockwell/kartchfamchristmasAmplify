@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+/* Leaderboard Header and Stars */
+.restrictSize {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center;
+  width: 80%; /* Use responsive width */
+  max-width: 800px; /* Prevent it from being too wide */
+  margin: 0 auto 2%; /* Center horizontally and add spacing below */
+  box-sizing: border-box; /* Include padding in the dimensions */
+}
+
+.centerThing {
+    text-align: center;
+}
+
+.h2BoxThing {
+    background-color: rgba(255, 255, 255, 0);
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    /* Add spacing between grid items */
+    width: 90%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: auto;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    margin-bottom: 1%;
+}
+
+.h2BoxItem {
+    /* Text styling */
+    font-size: clamp(1rem, 11vw, 80px);
+    text-decoration: underline;
+    text-align: center;
+    color: #f1c232;
+    text-shadow: 1px 1px 5px rgb(0, 0, 0);
+    /* Add a subtle shadow for contrast */
+    letter-spacing: 2px;
+    /* Slightly increase spacing between letters for clarity */
+    background-color: rgba(255, 255, 255, 0);
+    height: auto;
+}
+
+/* --------------------------------------------------------------------- */
+
+
+/* Leaderboard Styling */
+.leaderboardContainer {
+    /* Position Settings */
+    width: 90vw;
+    overflow-y: auto; /* Add scrolling for overflow */
+    background-color: rgba(255, 255, 255, 0);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #1f3d1f00;
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    max-width: 716.391px;
+    padding-bottom: 2%;
+}
+
+/* Row styles for each entry */
+.leaderboardRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #5a934000;
+    padding: 1%;
+    gap: 1%;
+}
+
+/* Individual column styles */
+.rank {
+    background-color: #5a9340;
+    border-radius: 3px;
+    font-size: clamp(1rem, 1.75rem, 3rem);
+    font-weight: 600;
+    text-shadow: -1px 1px 3px rgb(0, 0, 0);
+    color: white;
+    flex: 0;
+    text-align: center;
+    min-width: 18%;
+    height: auto;
+}
+
+.name {
+    background-color: #5a9340;
+    border-radius: 3px;
+    font-size: clamp(1rem, 1.75rem, 3rem);
+    font-weight: 600;
+    text-shadow: -1px 1px 3px rgb(0, 0, 0);
+    color: white;
+    flex: 1;
+    text-align: center;
+}
+
+.points {
+    background-color: #5a9340;
+    border-radius: 3px;
+    font-size: clamp(1rem, 1.75rem, 3rem);
+    font-weight: 600;
+    text-shadow: -1px 1px 3px rgb(0, 0, 0);
+    color: white;
+    flex: 0;
+    text-align: center;
+    min-width: 18%;
+}
+
+.suffix {
+    font-size: 0.6em; /* Smaller size relative to the main rank */
+    vertical-align: super; /* Raise the suffix */
+    line-height: 0; /* Prevent line height from adding unnecessary space */
+}
+/* --------------------------------------------------------------------- */

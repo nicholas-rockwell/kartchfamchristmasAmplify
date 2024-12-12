@@ -1,0 +1,138 @@
+.triviaContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  text-shadow: 1px 1px 5px rgb(0, 0, 0); /* Add a subtle shadow for contrast */
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  justify-content: center;
+}
+
+.questionBox {
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.question {
+  margin: 10px 0;
+  font-size: clamp(0.5rem, 4vw, 27.16px);
+  font-weight: bold;
+  width: 100%;
+}
+
+.options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ensures all options are centered horizontally */
+  gap: 10px;
+  font-size: clamp(0.5rem, 3vw, 23.34px);
+}
+
+.optionLabel {
+  display: flex;
+  align-items: center; /* Centers text vertically */
+  justify-content: center; /* Centers text horizontally */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  position: relative;
+  width: 100%;
+  text-align: center; /* Ensures text inside is centered */
+}
+
+.optionLabel:hover {
+  background-color: #8e1b3aff;
+}
+
+.optionLabel.selected {
+  background-color: #8e1b3aff; /* Keep the selected style */
+  border-color: #ffffff; /* Optional: Change border color for selected */
+  color: #ffffff; /* Ensure text remains visible */
+}
+
+.optionLabel input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.submitButton {
+  padding: 10px 20px;
+  background-image: linear-gradient(45deg, #ffffff 25%, #8e1b3aff 25%, #8e1b3aff 50%, #ffffff 50%, #ffffff 75%, #8e1b3aff 75%, #8e1b3aff 100%);
+  text-shadow: 1px 1px 25px rgb(255, 255, 255); /* Add a subtle shadow for contrast */
+  background-size: 75px 75px;
+  font-size: clamp(0.5rem, 4vw, 16.35px);
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
+  border: 2px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.feedback {
+  background-color: #e9ecef00;
+  border: 1px solid #dddddd00;
+  border-radius: 15px;
+  width: 100%;
+  display: flex; /* Use flexbox for centering */
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center horizontally */
+  text-align: center; /* Center text within */
+  font-size: clamp(0.5rem, 3vw, 27.16px);
+}
+
+.feedback h2 {
+  text-decoration: underline;
+  margin: 0px;
+}
+
+.feedback ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin-top: -20px;
+  margin: 0; /* Remove default margin */
+}
+
+.feedback li {
+  margin-bottom: 10px; /* Add spacing between feedback items */
+}
+
+.feedbackCorrect {
+  color: green;
+  font-weight: bold;
+}
+
+.feedbackIncorrect {
+  color: red;
+  font-weight: bold;
+}
+
+.score {
+  font-size: clamp(0.5rem, 4vw, 27.16px);
+  font-weight: bold;
+  text-align: center; /* Ensure the score text is centered */
+}
+
+.textInput {
+  width: 80%;
+  border: 2px solid #000000;
+  background-color: #ffffffe8; /* Light background */
+  color: #000000;
+  font-weight: bold;
+  font-size: clamp(0.5rem, 4vw, 27.16px);
+}

@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+
+.wordleContainer {
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+    gap: 20px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #8e1b3aff;
+    color: white;
+    height: 90%;
+    max-width: 500px;
+  }
+  
+  .guessesHeadline {
+    font-size: clamp(0.5rem, 5vw, 27.25px);
+    font-weight: 100 !important;
+  }
+
+  .guesses {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 150px; /* Adjust to limit space for guesses */
+    justify-content: center; /* Center the guesses vertically */
+    align-items: center; /* Center the guesses horizontally */
+    overflow: auto; /* Hide older guesses outside of the recent three */
+    width: 100%; /* Ensure it spans the container */
+  }
+
+  .guess {
+    display: flex;
+    gap: 5px;
+    justify-content: center; /* Center individual guess rows */
+  }
+  
+  .letter {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    text-transform: uppercase;
+  }
+  
+  .correct {
+    background-color: green;
+    color: white;
+  }
+  
+  .present {
+    background-color: yellow;
+    color: black;
+  }
+  
+  .absent {
+    background-color: gray;
+    color: white;
+  }
+  
+  .inputContainer {
+    display: flex;
+    width: 80%;
+    height: auto;
+    gap: 1%;
+  }
+  
+  .input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .submitButton {
+    padding: 10px 20px;
+    font-size: clamp(0.5rem, 3vw, 16.35px);
+    font-weight: bold;
+    background-image: linear-gradient(45deg, #ffffff 25%, #8e1b3aff 25%, #8e1b3aff 50%, #ffffff 50%, #ffffff 75%, #8e1b3aff 75%, #8e1b3aff 100%);
+    text-shadow: 1px 1px 25px rgb(255, 255, 255); /* Add a subtle shadow for contrast */
+    background-size: 75px 75px; 
+
+    
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .message {
+    margin-top: -10%;
+    position: absolute;
+    font-size: clamp(1rem, 6vw, 38.65px);
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow: 5px 5px 15px rgb(0, 0, 0); /* Add a subtle shadow for contrast */
+    background-color: rgb(142, 27, 58);
+    border: 2px solid rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 15px;
+    transition: all 0.5s ease-out;
+  }
+  

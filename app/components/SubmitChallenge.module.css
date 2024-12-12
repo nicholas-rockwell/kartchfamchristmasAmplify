@@ -1,0 +1,28 @@
+.body {
+    font-size: clamp(0.5rem, 4vw, 21.8px);
+    font-weight: bold;
+    text-shadow: 1px 1px 10px rgb(0, 0, 0); /* Add a subtle shadow for contrast */
+    color: rgb(255, 255, 255);
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.submitButton {
+    background-image: linear-gradient(45deg, #ffffff 25%, #8e1b3aff 25%, #8e1b3aff 50%, #ffffff 50%, #ffffff 75%, #8e1b3aff 75%, #8e1b3aff 100%);
+    background-size: 150px 150px; 
+    font-size: clamp(0.5rem, 4vw, 21.8px);
+    width: 80%;
+    height: auto;
+    margin-top: 5%;
+
+    text-shadow: 1px 1px 25px rgb(255, 255, 255); /* Add a subtle shadow for contrast */
+    color: rgb(0, 0, 0);
+    letter-spacing: 0px; /* Slightly increase spacing between letters for clarity */
+    font-weight: bolder;
+    border: 2px solid black;
+}
+
+.submitButton.disabled {
+    cursor: not-allowed;
+  }

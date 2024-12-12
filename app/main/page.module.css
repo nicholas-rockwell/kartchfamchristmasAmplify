@@ -1,0 +1,7 @@
+.container {
+  height: auto;
+  width: 100vw;
+  background-image: url(../../public/images/bg-greenSnowflakes.jpg);
+  background-position: center;
+  background-size: cover;
+  }

@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+.container {
+    font-family: 'Oswald', sans-serif;
+    height: 90%;
+    width: 90%;
+    border-radius: 15px;
+    /* REMOVE FOR PROD */
+    background-color: rgba(0, 0, 0, 0);
+
+    color: white;
+    padding: 10px;
+}
+
+.information {
+    font-size: clamp(0.5rem, 5vw, 25.85px);
+    text-shadow: 5px 5px 15px rgb(0, 0, 0); /* Add a subtle shadow for contrast */
+}
+
+.photoChallenge {
+    font-size: clamp(0.5rem, 5vw, 25.85px);
+    text-decoration: underline;
+    text-shadow: 5px 5px 15px rgb(0, 0, 0); /* Add a subtle shadow for contrast */
+}

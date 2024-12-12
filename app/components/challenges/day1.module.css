@@ -1,0 +1,37 @@
+.container {
+    height: auto;
+    max-height: 90%;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 15px;
+    /* REMOVE FOR PROD */
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px;
+}
+
+.wordleChallenge {
+    font-size: clamp(0.5rem, 8vw, 41.36px);
+    text-decoration: underline;
+    color: rgb(255, 255, 255);
+}
+
+.information {
+    margin-top: -1px;
+    font-size: clamp(0.5rem, 5vw, 25.85px);
+    color: rgb(255, 255, 255);
+}
+
+.wordleBox {
+    width: auto;
+    height: 50%;
+    max-height: 90%;
+}
+
+.submitChallengeBox {
+    height: auto;
+}
+
+.italicWord {
+    font-style: italic;
+    text-decoration: underline;
+}
