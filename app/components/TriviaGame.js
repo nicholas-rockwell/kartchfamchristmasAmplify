@@ -7,6 +7,8 @@ const TriviaGame = ({ trivia_id, onTriviaGameSubmit }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [feedback, setFeedback] = useState([]); // State to hold feedback for correct answers
+  const [submitted, setSubmitted] = useState(false); // Track if answers are locked in
+  const [nonMultipleChoiceMessage, setNonMultipleChoiceMessage] = useState("");
 
   // Fetch questions from the API
   useEffect(() => {
@@ -59,6 +61,7 @@ const TriviaGame = ({ trivia_id, onTriviaGameSubmit }) => {
 
   const handleSubmit = () => {
     let correctCount = 0;
+    let hasNonMultipleChoice = false;
 
     // Prepare feedback and external_data
     const feedbackData = questions.map((q) => {
@@ -68,6 +71,7 @@ const TriviaGame = ({ trivia_id, onTriviaGameSubmit }) => {
           ? q.options?.[userAnswer] === q.correct
           : userAnswer?.toLowerCase() === q.correct?.toLowerCase();
 
+      if (q.type !== "multipleChoice") hasNonMultipleChoice = true;
       if (isCorrect) correctCount++;
 
       return {
@@ -88,6 +92,12 @@ const TriviaGame = ({ trivia_id, onTriviaGameSubmit }) => {
 
     // Update feedback state for correct answers
     setFeedback(feedbackData);
+    setSubmitted(true);
+
+    // Set feedback message for non-multipleChoice questions
+    if (hasNonMultipleChoice) {
+      setNonMultipleChoiceMessage("Your answers have been locked in. Submit the challenge below!");
+    }
 
     // Pass external_data to the parent component
     if (onTriviaGameSubmit) {
@@ -118,6 +128,7 @@ const TriviaGame = ({ trivia_id, onTriviaGameSubmit }) => {
                     value={index}
                     checked={userAnswers[q.id] === index}
                     onChange={() => handleAnswerChange(q.id, index)}
+                    disabled={submitted} // Disable input after submission
                   />
                   {option}
                 </label>
@@ -129,15 +140,21 @@ const TriviaGame = ({ trivia_id, onTriviaGameSubmit }) => {
                 placeholder="Answer here..."
                 value={userAnswers[q.id] || ""}
                 onChange={(e) => handleAnswerChange(q.id, e.target.value)}
+                disabled={submitted} // Disable input after submission
               />
             )}
           </div>
         </div>
       ))}
-      <button className={styles.submitButton} onClick={handleSubmit}>
+      <button className={styles.submitButton} onClick={handleSubmit} disabled={submitted}>
         Lock In Answers
       </button>
-      {feedback.length > 0 && (
+      {submitted && nonMultipleChoiceMessage && (
+        <div className={styles.nonMultipleChoiceMessage}>
+          <p>{nonMultipleChoiceMessage}</p>
+        </div>
+      )}
+      {submitted && feedback.length > 0 && (
         <div className={styles.feedback}>
           <h2>Your Results</h2>
           <ul>
@@ -153,8 +170,6 @@ const TriviaGame = ({ trivia_id, onTriviaGameSubmit }) => {
                     >
                       {f.userAnswer}
                     </span>
-                    <br />
-                    Correct Answer: <span className={styles.feedbackCorrect}>{f.correctAnswer}</span>
                   </p>
                 </li>
               ) : null

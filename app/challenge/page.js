@@ -21,8 +21,8 @@ const ChallengeDay12 = dynamic(() => import("../components/challenges/day12"));
 
 const ChallengePage = () => {
   const today = new Date(); // Get today's date as an example
-  const day = today.getDate();
-  //const day = 20; // REMOVE FOR PROD , days are day in december
+  //const day = today.getDate();
+  const day = 23; // REMOVE FOR PROD , days are day in december
 
   let dayOfChristmas;
   switch (day) {

@@ -14,15 +14,19 @@ const Day3Challenge = () => {
   };
 
   return (
-    <div className={ styles.container }>
-      <span className={ styles.photoChallenge }>Photo Challenge!</span>
-      <p className={ styles.information }>
-      Build a snowman using anything nearby! 
-      Snap a photo with it and upload before time melts away!
-      Five points awarded for submission, additional points may be awarded for creativity!
+    <div className={styles.container}>
+      <span className={styles.photoChallenge}>Photo Challenge!</span>
+      <p className={styles.information}>
+        Build a snowman using anything nearby! Snap a photo with it and upload
+        before time melts away! Five points awarded for submission, additional
+        points may be awarded for creativity!
       </p>
-      <CameraCapture onPhotoCapture={ handlePhotoCapture } />
-      <SubmitChallenge challengeId={ 3 } challengeType={ challengeType } externalData={ photoFile }/>
+      <CameraCapture onPhotoCapture={handlePhotoCapture} />
+      <SubmitChallenge
+        challengeId={3}
+        challengeType={challengeType}
+        externalData={photoFile}
+      />
     </div>
   );
 };
