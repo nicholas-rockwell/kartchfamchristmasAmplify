@@ -25,8 +25,8 @@ function MainPage() {
 
     const today = new Date();
     const currentHour = today.getHours();
-    //const day = today.getDate();
-    const day = 14;
+    const day = today.getDate();
+    //const day = 20;
 
     let calculatedDay = null;
     let timeEstimate = null;
