@@ -156,7 +156,6 @@ const TriviaGame = ({ trivia_id, onTriviaGameSubmit }) => {
       )}
       {submitted && feedback.length > 0 && (
         <div className={styles.feedback}>
-          <h2>Your Results</h2>
           <ul>
             {feedback.map((f, index) =>
               f.type === "multipleChoice" ? ( // Only show feedback for multiple-choice questions

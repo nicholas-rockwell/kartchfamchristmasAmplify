@@ -70,7 +70,7 @@ const MiniCrossword = ({ onSubmit }) => {
     { direction: "across", number: 3, clue: "A hot cup of _, not coffee" },
     { direction: "across", number: 4, clue: "He's coming to town" },
     { direction: "down", number: 4, clue: "Cold as ice but safe to throw" },
-    { direction: "down", number: 5, clue: "A synonym carol or hymn" },
+    { direction: "down", number: 5, clue: "A synonym for carol or hymn" },
   ];
 
   const [elapsedTime, setElapsedTime] = useState(0);
