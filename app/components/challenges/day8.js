@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from '../challenges/day8.module.css';
+import { useState } from 'react';
 import CameraCapture from '../CameraCapture';
 import SubmitChallenge from '../SubmitChallenge';
+import styles from '../challenges/day8.module.css';
 
 const Day8Challenge = () => {
   const [photoFile, setPhotoFile] = useState(null); // State to hold the captured photo file

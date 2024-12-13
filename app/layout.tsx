@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import styles from "../app/layout.module.css"; // Use your global styles
+import './globals.css';
 import React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,7 +23,7 @@ export default function RootLayout({
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
       />
       <body>
-        <main className={styles.main}>{children}</main>
+        <main>{children}</main>
       </body>
     </html>
   );

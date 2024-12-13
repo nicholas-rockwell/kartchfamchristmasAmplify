@@ -13,11 +13,6 @@ const Day3Challenge = () => {
     setPhotoFile(capturedPhoto); // Store the captured photo in the state
   };
 
-  // REMOVE FOR PROD
-  if (photoFile != null) {
-    console.log("I have a photo");
-  }
-
   return (
     <div className={ styles.container }>
       <span className={ styles.photoChallenge }>Photo Challenge!</span>

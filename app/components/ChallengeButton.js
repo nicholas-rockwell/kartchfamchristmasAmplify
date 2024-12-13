@@ -105,7 +105,7 @@ const ChallengeButton = ({ day, timeEstimate }) => {
     return (
       <div className={styles.container}>
         <button disabled className={styles.buttonBox}>
-          Challenge Already Submitted
+          Challenge Submitted
         </button>
       </div>
     );

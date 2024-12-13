@@ -1,34 +1,22 @@
 :root {
-  --bg-color: rgba(255, 255, 255, 0.801); /* Semi-transparent white for the background */
+  --bg-color: #435649; /* Semi-transparent white for the background */
   --text-color: #000000;
+  padding: 0;
+  margin: 0px;
 }
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 /* Set the background image for the whole body */
 html, body {
-  height: 100vh;; /* Ensure height propagates to all descendants */
-  width: 100vw; /* Ensure width propagates */
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   font-family: 'Oswald', sans-serif;
-  margin: 0px; /* Remove default margin */
-  padding: 0px; /* Remove default padding */
   background-size: cover;
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
   background-attachment: fixed;
-  flex-direction: column;
+  box-sizing: border-box;
   background-color: #435649;
-  box-sizing: border-box;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-
-br {
-  margin: 0px;
-  padding: 0;
 }
