@@ -48,20 +48,16 @@ const Leaderboard = ({ currentDay }) => {
             });
 
             // Assign ranks with logic for ties
-            let rank = 1; // Start rank at 1
+            let rank = 0; // Start rank at 0
             let previousPoints = null;
-            let skippedRanks = 0;
 
             const rankedData = sortedData.map((entry, index) => {
               if (entry.points === 0) {
                 entry.rank = "-"; // Rank is '-' for users with 0 points
               } else {
-                // Check if this entry has the same points as the previous one
-                if (entry.points === previousPoints) {
-                  skippedRanks++;
-                } else {
-                  rank += skippedRanks;
-                  skippedRanks = 0;
+                // Increment rank only if points differ from the previous entry
+                if (entry.points !== previousPoints) {
+                  rank = index + 1; // Use index to determine the rank
                 }
 
                 entry.rankNumeric = rank; // Numeric rank for logic
