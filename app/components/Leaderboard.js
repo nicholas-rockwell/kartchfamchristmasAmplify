@@ -47,14 +47,28 @@ const Leaderboard = ({ currentDay }) => {
               return b.points - a.points;
             });
 
-            // Add ranking with suffix or '-' for users with 0 points
+            // Assign ranks with logic for ties
+            let rank = 1; // Start rank at 1
+            let previousPoints = null;
+            let skippedRanks = 0;
+
             const rankedData = sortedData.map((entry, index) => {
               if (entry.points === 0) {
                 entry.rank = "-"; // Rank is '-' for users with 0 points
               } else {
-                const rank = index + 1;
+                // Check if this entry has the same points as the previous one
+                if (entry.points === previousPoints) {
+                  skippedRanks++;
+                } else {
+                  rank += skippedRanks;
+                  skippedRanks = 0;
+                }
+
+                entry.rankNumeric = rank; // Numeric rank for logic
                 entry.rank = `${rank}${getRankSuffix(rank)}`;
               }
+
+              previousPoints = entry.points; // Track previous points for tie comparison
               return entry;
             });
 

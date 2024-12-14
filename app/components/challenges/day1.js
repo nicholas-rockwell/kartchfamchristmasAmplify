@@ -6,13 +6,12 @@ import Wordle from '../Wordle'
 import SubmitChallenge from '../SubmitChallenge'
 
 const Day1Challenge = () => {
-  const [wordleAttempts, setwordleAttempts] = useState(null); // State to hold the captured photo file
+  const [wordleAttempts, setwordleAttempts] = useState(null); 
   const challengeType = "Wordle";
 
   const handleWordleSubmit = (wordleAttempts) => {
-    setwordleAttempts(wordleAttempts); // Store the captured photo in the state
+    setwordleAttempts(wordleAttempts); 
   };
-
   
   return (
     <div className={styles.container}>
