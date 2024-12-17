@@ -90,7 +90,7 @@ const TriviaGame = ({ trivia_id, onTriviaGameSubmit }) => {
 
     setFeedback(feedbackData);
     setSubmitted(true);
-    console.log(feedbackData);
+
     const external_data = {
       trivia_id,
       answers: feedbackData,
@@ -134,7 +134,9 @@ const TriviaGame = ({ trivia_id, onTriviaGameSubmit }) => {
             ) : (
               <input
                 type="text"
-                className={styles.textInput}
+                className={`${styles.textInput} ${
+                  submitted ? styles.submittedInput : ""
+                }`}
                 placeholder="Answer here..."
                 value={userAnswers[q.id] || ""}
                 onChange={(e) => handleAnswerChange(q.id, e.target.value)}
@@ -144,33 +146,49 @@ const TriviaGame = ({ trivia_id, onTriviaGameSubmit }) => {
           </div>
         </div>
       ))}
-      <button className={styles.submitButton} onClick={handleSubmit} disabled={submitted}>
+
+      <button
+        className={styles.submitButton}
+        onClick={handleSubmit}
+        disabled={submitted}
+      >
         Lock In Answers
       </button>
-      {submitted && feedback.length > 0 && (
-        <div className={styles.feedback}>
-          <h2>Your Results</h2>
-          <ul>
-            {feedback.map((f, index) => (
-              <li key={index}>
-                <p>
-                  <strong>{f.questionText}</strong>
-                  <br />
-                  Your Answer:{" "}
-                  <span
-                    className={f.isCorrect ? styles.feedbackCorrect : styles.feedbackIncorrect}
-                  >
-                    {f.userAnswer}
-                  </span>
-                  <br />
-                  Correct Answer:{" "}
-                  <span className={styles.feedbackCorrect}>{f.correctAnswer}</span>
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+
+      {submitted &&
+        feedback.length > 0 &&
+        feedback.some((f) => f.type === "multipleChoice") && (
+          <div className={styles.feedback}>
+            <h2>Your Results</h2>
+            <ul>
+              {feedback
+                .filter((f) => f.type === "multipleChoice") // Only include multipleChoice results
+                .map((f, index) => (
+                  <li key={index}>
+                    <p>
+                      <strong>{f.questionText}</strong>
+                      <br />
+                      Your Answer:{" "}
+                      <span
+                        className={
+                          f.isCorrect
+                            ? styles.feedbackCorrect
+                            : styles.feedbackIncorrect
+                        }
+                      >
+                        {f.userAnswer}
+                      </span>
+                      <br />
+                      Correct Answer:{" "}
+                      <span className={styles.feedbackCorrect}>
+                        {f.correctAnswer}
+                      </span>
+                    </p>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        )}
     </div>
   );
 };

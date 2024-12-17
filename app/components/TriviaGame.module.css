@@ -71,6 +71,10 @@
   cursor: pointer;
 }
 
+.submittedInput {
+  background-color: green !important;
+}
+
 .submitButton {
   padding: 10px 20px;
   background-image: linear-gradient(45deg, #ffffff 25%, #8e1b3aff 25%, #8e1b3aff 50%, #ffffff 50%, #ffffff 75%, #8e1b3aff 75%, #8e1b3aff 100%);
