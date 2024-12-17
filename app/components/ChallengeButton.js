@@ -84,6 +84,9 @@ const ChallengeButton = ({ day, timeEstimate }) => {
 
   const handleConfirm = () => {
     setShowPopup(false);
+
+    // Add an API call to set the challenge status to true, implying that once the challengebutton has been pressed for the day it can not be pressed again
+    
     router.push("/challenge");
   };
 

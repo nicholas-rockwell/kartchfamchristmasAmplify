@@ -61,15 +61,27 @@ const TriviaGame = ({ trivia_id, onTriviaGameSubmit }) => {
   const handleSubmit = () => {
     const feedbackData = questions.map((q) => {
       const userAnswer = userAnswers[q.id];
+
+      // Ensure the displayed userAnswer is valid
+      const displayedUserAnswer =
+        userAnswer !== undefined && userAnswer !== null
+          ? q.type === "multipleChoice"
+            ? q.options?.[userAnswer] || "No Answer" // Retrieve option text for MCQs
+            : userAnswer // Use raw input for other types
+          : "No Answer";
+
+      // Safely determine correctness
       const isCorrect =
         q.type === "multipleChoice"
           ? q.options?.[userAnswer] === q.correct
-          : userAnswer?.toLowerCase() === q.correct?.toLowerCase();
+          : typeof userAnswer === "string" &&
+            typeof q.correct === "string" &&
+            userAnswer.toLowerCase() === q.correct.toLowerCase();
 
       return {
         questionId: q.id,
         questionText: q.questionText,
-        userAnswer: userAnswer !== undefined ? (q.options ? q.options[userAnswer] : userAnswer) : "No Answer",
+        userAnswer: displayedUserAnswer,
         correctAnswer: q.correct,
         isCorrect,
         type: q.type,
@@ -78,7 +90,7 @@ const TriviaGame = ({ trivia_id, onTriviaGameSubmit }) => {
 
     setFeedback(feedbackData);
     setSubmitted(true);
-
+    console.log(feedbackData);
     const external_data = {
       trivia_id,
       answers: feedbackData,
