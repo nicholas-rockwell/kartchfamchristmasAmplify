@@ -10,6 +10,7 @@ const Day11Challenge = () => {
 
   const handlePhotoTriviaSubmit = (external_data) => {
     setExternalData(external_data);
+    console.log(external_data);
   }
 
   return (

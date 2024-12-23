@@ -103,6 +103,8 @@ const SubmitChallenge = ({ challengeId, challengeType, onSubmit, externalData })
         timeTaken: elapsedTime,
         submission_data: challengeType === "Photo" ? { photoUrl } : externalData,
       };
+      
+      console.log(submissionPayload);
 
       const submissionResponse = await fetch(
         "https://ygf8fotvt3.execute-api.us-west-2.amazonaws.com/Prod/submit-challenge",

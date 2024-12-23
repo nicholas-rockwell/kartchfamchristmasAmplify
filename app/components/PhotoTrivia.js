@@ -8,6 +8,7 @@ const PhotoTrivia = ({ trivia_id, onPhotoTriviaSubmit }) => {
   const [error, setError] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [revealCorrectAnswer, setRevealCorrectAnswer] = useState(false); // Show correct answer image
+  const [isLastAnswerSubmitted, setIsLastAnswerSubmitted] = useState(false); // Track final answer submission
 
   // Hardcoded images for questions and answers
   const questionImages = {
@@ -70,13 +71,33 @@ const PhotoTrivia = ({ trivia_id, onPhotoTriviaSubmit }) => {
     fetchQuestions();
   }, [trivia_id]);
 
-  const handleAnswerChange = (answer) => {
-    setUserAnswers({ ...userAnswers, [questions[currentQuestionIndex].id]: answer });
+  const handleAnswerChange = (selectedAnswer) => {
+    setUserAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      [questions[currentQuestionIndex].id]: selectedAnswer, // Store the actual string value
+    }));
   };
+  
 
   const handleSubmit = () => {
-    setRevealCorrectAnswer(true); // Show correct answer image
+    setRevealCorrectAnswer(true);
+  
+    if (isLastQuestion) {
+      // Calculate the number of correct answers
+      const correctAnswersCount = questions.reduce((count, question) => {
+        const userAnswer = userAnswers[question.id];
+        return userAnswer === question.correct ? count + 1 : count;
+      }, 0);
+  
+      console.log("User Answers: ", userAnswers);
+      console.log("Correct Answers Count: ", correctAnswersCount);
+  
+      // Submit the data to the parent
+      onPhotoTriviaSubmit(correctAnswersCount);
+      setIsLastAnswerSubmitted(true); // Mark the last question as submitted
+    }
   };
+  
 
   const handleNextQuestion = () => {
     setRevealCorrectAnswer(false); // Hide correct answer image
@@ -103,15 +124,15 @@ const PhotoTrivia = ({ trivia_id, onPhotoTriviaSubmit }) => {
               />
               <div className={styles.options}>
                 <select
-                  value={userAnswers[currentQuestion.id] || ""}
-                  onChange={(e) => handleAnswerChange(e.target.value)}
+                  value={userAnswers[currentQuestion.id] || ""} // Set the selected answer string
+                  onChange={(e) => handleAnswerChange(e.target.value)} // Pass the selected string value
                   className={styles.dropdown}
                 >
                   <option value="" disabled>
                     Select your answer
                   </option>
                   {currentQuestion.options.map((option, index) => (
-                    <option key={index} value={index}>
+                    <option key={index} value={option}>
                       {option}
                     </option>
                   ))}
@@ -126,7 +147,7 @@ const PhotoTrivia = ({ trivia_id, onPhotoTriviaSubmit }) => {
               </button>
             </div>
           ) : (
-            // Correct answer phase: Show correct answer image and next button
+            // Correct answer phase: Show correct answer image
             <div className={styles.correctAnswerBox}>
               <img
                 src={correctAnswerImages[currentQuestion.id]}
@@ -136,20 +157,21 @@ const PhotoTrivia = ({ trivia_id, onPhotoTriviaSubmit }) => {
               <p className={styles.correctAnswerText}>
                 Its {currentQuestion.correct}
               </p>
-              <button
-                className={styles.submitButton}
-                onClick={handleNextQuestion}
-                disabled={isLastQuestion} // Disable on last question
-              >
-                {isLastQuestion ? "Finish" : "Next Question"}
-              </button>
+              {!isLastQuestion && (
+                <button
+                  className={styles.submitButton}
+                  onClick={handleNextQuestion}
+                >
+                  Next Question
+                </button>
+              )}
             </div>
           )}
         </>
       )}
-      {isLastQuestion && revealCorrectAnswer && (
+      {isLastQuestion && isLastAnswerSubmitted && (
         <p className={styles.endMessage}>
-          You have completed the PhotoTrivia challenge! Submit your answers to finish.
+          Great Job! Your answers have been submitted!
         </p>
       )}
     </div>
