@@ -11,7 +11,7 @@ const ChallengeButton = ({ day, timeEstimate }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [secondsLeft, setSecondsLeft] = useState(0);
 
-  const targetDate = "2024-12-13T06:00:00"; // yyyy-mm-ddThh:mm:ss
+  const targetDate = "2024-12-24T19:30:00"; // yyyy-mm-ddThh:mm:ss
 
   useEffect(() => {
     const fetchLeaderboardData = async () => {
@@ -79,7 +79,7 @@ const ChallengeButton = ({ day, timeEstimate }) => {
     const hours = Math.floor((seconds % (3600 * 24)) / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
     const secs = seconds % 60;
-    return `${days}d ${hours}h ${minutes}m ${secs}s`;
+    return `${hours}h ${minutes}m ${secs}s`;
   };
 
   const handleConfirm = () => {
@@ -118,7 +118,7 @@ const ChallengeButton = ({ day, timeEstimate }) => {
     return (
       <div className={styles.container}>
         <button onClick={() => setShowPopup(true)} className={styles.buttonBox}>
-          The Challenge Begins In:
+          The Final Challenge Begins In:
           <br />
           <span className={styles.countdown}>{formatTime(secondsLeft)}</span>
         </button>
