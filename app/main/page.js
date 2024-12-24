@@ -25,7 +25,8 @@ function MainPage() {
 
     const today = new Date();
     const currentHour = today.getHours();
-    //const day = today.getDate();
+    //const day = today.getDate(); 
+    // START EVENT UNCOMMENT/COMMENT
     const day = null;
 
     let calculatedDay = null;
@@ -90,6 +91,7 @@ function MainPage() {
     setIsChallengeAvailable(currentHour >= 6 && currentHour < 24);
   }, [router]);
 
+  //After event - remove challenge button
   return (
     <div className={styles.container}>
       <ChallengeButton

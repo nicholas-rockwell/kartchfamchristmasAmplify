@@ -91,6 +91,7 @@ const Leaderboard = ({ currentDay }) => {
     return <div className={styles.h2BoxItem}>Loading leaderboard...</div>;
   }
 
+  // after event - change leaderboard to say 2024 Results
   return (
     <div className={styles.restrictSize}>
       <div className={styles.centerThing}>
