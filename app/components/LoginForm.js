@@ -68,10 +68,6 @@ function LoginForm() {
 
   return (
     <div>
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-      />
       <div className={styles.welcomeContainer}>
         <div className={styles.welcomeText}>
           <div className={styles.lineBig}>Welcome</div>

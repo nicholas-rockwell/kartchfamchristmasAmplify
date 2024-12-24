@@ -12,6 +12,7 @@ const ChallengeButton = ({ day, timeEstimate }) => {
   const [secondsLeft, setSecondsLeft] = useState(0);
 
   const targetDate = "2024-12-24T19:30:00"; // yyyy-mm-ddThh:mm:ss
+  //const targetDate = "2025-12-13T09:00:00"; // yyyy-mm-ddThh:mm:ss
 
   useEffect(() => {
     const fetchLeaderboardData = async () => {
@@ -80,6 +81,7 @@ const ChallengeButton = ({ day, timeEstimate }) => {
     const minutes = Math.floor((seconds % 3600) / 60);
     const secs = seconds % 60;
     return `${hours}h ${minutes}m ${secs}s`;
+    // return `${days}d ${hours}h ${minutes}m ${secs}s`;
   };
 
   const handleConfirm = () => {

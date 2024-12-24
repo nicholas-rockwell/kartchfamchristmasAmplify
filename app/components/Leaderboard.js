@@ -93,10 +93,6 @@ const Leaderboard = ({ currentDay }) => {
 
   return (
     <div className={styles.restrictSize}>
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-      />
       <div className={styles.centerThing}>
         <div className={styles.h2BoxThing}>
           <div className={styles.h2BoxItem}>Leaderboard</div>
