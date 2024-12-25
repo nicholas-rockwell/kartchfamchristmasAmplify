@@ -28,6 +28,7 @@ function MainPage() {
     //const day = today.getDate(); 
     // START EVENT UNCOMMENT/COMMENT
     const day = null;
+    console.log(day);
 
     let calculatedDay = null;
     let timeEstimate = null;
